@@ -1,4 +1,4 @@
-let n = -153;
+let n = 153;
 let sum = 0;
 let prime = true;
 let temp = n;
@@ -44,7 +44,6 @@ while (temp > 0) {
 }
 
 console.log("\n5. Sum of digits = " + digitSum);
-
 
 temp = n;
 
