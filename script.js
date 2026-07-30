@@ -1,18 +1,21 @@
-let n = 153;
-
+let n = -153;
 let sum = 0;
+let prime = true;
+let temp = n;
+let digitSum = 0;
+let armstrongSum = 0;
+let digit;
+
 for (let i = 1; i <= n; i++) {
     sum += i;
 }
-console.log("Sum of first " + n + " numbers = " + sum);
-
-let prime = true;
+console.log("1. Sum of first " + n + " numbers = " + sum);
 
 if (n <= 1) {
     prime = false;
 } else {
-    for (let i = 2; i < n; i++) {
-        if (n % i === 0) {
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i == 0) {
             prime = false;
             break;
         }
@@ -20,39 +23,39 @@ if (n <= 1) {
 }
 
 if (prime) {
-    console.log("\n" + n + " is a Prime Number");
+    console.log("\n3. " + n + " is a Prime Number");
 } else {
-    console.log("\n" + n + " is NOT a Prime Number");
+    console.log("\n3. " + n + " is NOT a Prime Number");
 }
 
-console.log("\nFactors of " + n + ":");
+console.log("\n4. Factors of " + n + ":");
 for (let i = 1; i <= n; i++) {
-    if (n % i === 0) {
+    if (n % i == 0) {
         console.log(i);
     }
 }
 
-let temp = n;
-let digitSum = 0;
+temp = n;
 
 while (temp > 0) {
-    digitSum += temp % 10;
+    digit = temp % 10;
+    digitSum += digit;
     temp = Math.floor(temp / 10);
 }
 
-console.log("\nSum of digits = " + digitSum);
+console.log("\n5. Sum of digits = " + digitSum);
+
 
 temp = n;
-let armstrongSum = 0;
 
 while (temp > 0) {
-    let digit = temp % 10;
-    armstrongSum += digit ** 3;
+    digit = temp % 10;
+    armstrongSum += digit * digit * digit;
     temp = Math.floor(temp / 10);
 }
 
-if (armstrongSum === n) {
-    console.log(n + " is an Armstrong Number");
+if (armstrongSum == n) {
+    console.log("\n6. " + n + " is an Armstrong Number");
 } else {
-    console.log(n + " is NOT an Armstrong Number");
+    console.log("\n6. " + n + " is NOT an Armstrong Number");
 }
